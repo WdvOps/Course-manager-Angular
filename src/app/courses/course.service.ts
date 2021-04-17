@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn:'root'
+    providedIn: 'root'
 })
 export class CourseService {
 
@@ -15,14 +15,13 @@ export class CourseService {
     retrieveAll(): Observable<Course[]> {
         return this.httpClient.get<Course[]>(this.coursesUrl);
     }
-    retrieveById(id: number): Observable<Course> 
-    {
+    retrieveById(id: number): Observable<Course> {
         return this.httpClient.get<Course>(`${this.coursesUrl}/${id}`);
     }
 
     save(course: Course): Observable<Course> {
-        if(course.id) {
-           return this.httpClient.put<Course>(`${this.coursesUrl}/${course.id}`, course);
+        if (course.id) {
+            return this.httpClient.put<Course>(`${this.coursesUrl}/${course.id}`, course);
         } else {
             return this.httpClient.post<Course>(`${this.coursesUrl}`, course);
         }

@@ -17,12 +17,12 @@ import { CoreModule } from './core/component/core-module';
     BrowserModule,
     CoreModule,
     HttpClientModule,
-    
+
     RouterModule.forRoot([
       {
         path: '', redirectTo: 'courses', pathMatch: 'full'
       },
-      
+
     ]),
     CourseModule,
   ],
